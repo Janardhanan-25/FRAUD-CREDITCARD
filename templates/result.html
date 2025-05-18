@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Result</title>
+    <style>
+        body {
+            background-color: #e5b4b4; /* dusty pink */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .safe {
+            background-color: #90ee90; /* light green */
+            color: green;
+        }
+        .suspicious {
+            background-color: #ffcccb; /* light red */
+            color: red;
+        }
+        .unblocked {
+            background-color: #87ceeb; /* sky blue */
+            color: navy;
+        }
+    </style>
+</head>
+<body>
+    {% if result == 'Safe Transaction' %}
+        <div class="result safe">{{ result }}</div>
+    {% elif result == 'Card Unblocked' %}
+        <div class="result unblocked">{{ result }}</div>
+    {% else %}
+        <div class="result suspicious">Suspicious Card - Blocked</div>
+    {% endif %}
+
+    <script>
+        let message = "{{ result }}";
+        if(message === "Suspicious Card - Blocked") {
+            message = "Suspicious Card Blocked";
+        } else if (message === "Card Unblocked") {
+            message = "Card Unblocked";
+        }
+        const speech = new SpeechSynthesisUtterance(message);
+        window.speechSynthesis.speak(speech);
+    </script>
+</body>
+</html>

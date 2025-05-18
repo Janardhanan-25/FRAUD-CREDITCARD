@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Card Block</title>
+    <style>
+        body {
+            background-color: #fff3cd;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .puzzle-box {
+            background-color: #f8d7da;
+            color: #721c24;
+            width: 300px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 80%;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="puzzle-box">
+        <h2>Security Check</h2>
+        <p>Solve the puzzle: What is 3 + 5?</p>
+        <form method="POST">
+            <input type="text" name="answer" required placeholder="Enter your answer">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

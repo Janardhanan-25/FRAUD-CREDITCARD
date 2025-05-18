@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Page</title>
+    <style>
+        body {
+            background-color: #add8e6; /* pale blue */
+            font-family: Arial, sans-serif;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            margin: 50px auto;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input[type="text"], input[type="number"], input[type="time"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h2>Enter Transaction Details</h2>
+        <label>Card Number:</label>
+        <input type="text" name="card_number" required><br>
+
+        <label>Amount:</label>
+        <input type="number" name="amount" required><br>
+
+        <label>Location:</label>
+        <input type="text" name="location" required><br>
+
+        <label>Time:</label>
+        <input type="time" name="time" required><br>
+
+        <input type="submit" value="Submit Transaction">
+    </form>
+</body>
+</html>
